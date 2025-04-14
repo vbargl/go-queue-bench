@@ -1,4 +1,4 @@
-package brokers
+package pubsub
 
 type Client interface {
 	Subscribe(topics ...string) (err error)

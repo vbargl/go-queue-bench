@@ -1,4 +1,4 @@
-package brokers
+package pubsub
 
 import (
 	"errors"
@@ -12,7 +12,7 @@ type ZMQBroker struct {
 }
 
 func NewZMQBroker(clientEndpoint, brokerEndpoint string, quiet bool) (Broker, error) {
-	receiver, err := zmq.NewSocket(zmq.SUB)
+	receiver, err := zmq.NewSocket(zmq.REP)
 	if err != nil {
 		return nil, err
 	}
@@ -20,7 +20,7 @@ func NewZMQBroker(clientEndpoint, brokerEndpoint string, quiet bool) (Broker, er
 		return nil, err
 	}
 
-	sender, err := zmq.NewSocket(zmq.PUB)
+	sender, err := zmq.NewSocket(zmq.REQ)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ type ZMQClient struct {
 }
 
 func NewZMQClient(clientEndpoint, brokerEndpoint string, quite bool) (Client, error) {
-	sender, err := zmq.NewSocket(zmq.PUB)
+	sender, err := zmq.NewSocket(zmq.REQ)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +74,7 @@ func NewZMQClient(clientEndpoint, brokerEndpoint string, quite bool) (Client, er
 		return nil, err
 	}
 
-	receiver, err := zmq.NewSocket(zmq.SUB)
+	receiver, err := zmq.NewSocket(zmq.REP)
 	if err != nil {
 		return nil, err
 	}

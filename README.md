@@ -17,7 +17,7 @@ $ yay -Sy zeromq go [1]
 
 ## Running
 
-To run the test simply run `go run ./bench/ -{zmq,mangos}`
+To run the test simply run `go run ./bench/{pubsub/reqrep} -{tcp,ipc,inproc} -{zmq,mangos}`
 
 ## Honorable mentions
 

@@ -1,11 +1,11 @@
-package brokers
+package pubsub
 
 import (
 	"errors"
 
 	"go.nanomsg.org/mangos/v3"
-	pub "go.nanomsg.org/mangos/v3/protocol/pub"
-	sub "go.nanomsg.org/mangos/v3/protocol/sub"
+	sub "go.nanomsg.org/mangos/v3/protocol/rep"
+	pub "go.nanomsg.org/mangos/v3/protocol/req"
 
 	_ "go.nanomsg.org/mangos/v3/transport/inproc"
 	_ "go.nanomsg.org/mangos/v3/transport/ipc"
